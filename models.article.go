@@ -2,7 +2,6 @@ package main
 
 import (
 	"errors"
-	"testing"
 )
 
 type article struct {
@@ -18,23 +17,6 @@ var articleList = []article{
 
 func getAllArticles() []article {
 	return articleList
-}
-
-func TestGetAllArticles(t *testing.T) {
-	alist := getAllArticles()
-
-	if len(alist) != len(articleList) {
-		t.Fail()
-	}
-
-	for i, v := range alist {
-		if v.Content != articleList[i].Content ||
-			v.ID != articleList[i].ID ||
-			v.Title != articleList[i].Title {
-			t.Fail()
-			break
-		}
-	}
 }
 
 func getArticleByID(id int) (*article, error) {

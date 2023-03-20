@@ -1,9 +1,10 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
 	"net/http"
 	"strconv"
+
+	"github.com/gin-gonic/gin"
 )
 
 func showIndexPage(c *gin.Context) {
@@ -39,6 +40,6 @@ func render(c *gin.Context, data gin.H, templateName string) {
 	case "application/xml":
 		c.XML(http.StatusOK, data["payload"])
 	default:
-		c.HTML(http.StatusOK, templateName, data["payload"])
+		c.HTML(http.StatusOK, templateName, data)
 	}
 }
